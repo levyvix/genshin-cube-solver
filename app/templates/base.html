@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Genshin Cube Solver{% endblock %}</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <style>
+        .cube-visual {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            margin: 2px;
+            border-radius: 8px;
+            text-align: center;
+            line-height: 40px;
+            color: white;
+            font-weight: bold;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        .cube-1 { background: linear-gradient(45deg, #ff6b6b, #ee5a52); }
+        .cube-2 { background: linear-gradient(45deg, #4ecdc4, #45b7aa); }
+        .cube-3 { background: linear-gradient(45deg, #45b7d1, #3498db); }
+        .cube-4 { background: linear-gradient(45deg, #96ceb4, #83d0c7); }
+        .cube-5 { background: linear-gradient(45deg, #feca57, #ff9ff3); }
+        
+        .attack-btn {
+            margin: 2px;
+            min-width: 50px;
+        }
+        
+        .config-card {
+            transition: transform 0.2s;
+        }
+        
+        .config-card:hover {
+            transform: translateY(-2px);
+        }
+        
+        .sequence-step {
+            display: inline-block;
+            background: #007bff;
+            color: white;
+            padding: 8px 12px;
+            margin: 2px;
+            border-radius: 20px;
+            font-weight: bold;
+        }
+        
+        .json-editor {
+            font-family: 'Courier New', monospace;
+            resize: vertical;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="/">
+                <i class="fas fa-cube me-2"></i>
+                Genshin Cube Solver
+            </a>
+        </div>
+    </nav>
+
+    <main class="container my-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="bg-dark text-light py-3 mt-5">
+        <div class="container text-center">
+            <small>Genshin Impact Cube Solver - Desenvolvido com FastAPI e Jinja2</small>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    {% block scripts %}{% endblock %}
+</body>
+</html>
