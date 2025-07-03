@@ -1,0 +1,4 @@
+2025-07-03 01:35:45 | INFO     | genshin_cube_solver.utils:get_logger:48 - Logger configurado com sucesso
+2025-07-03 01:35:45 | INFO     | genshin_cube_solver.utils:get_logger:49 - Logs sendo salvos em: C:\Users\enio\Documents\projetos\genshin-cube-solver\genshin_cube_solver\logs\cube_solver_2025-07-03_01-35-45.log
+2025-07-03 01:35:45 | INFO     | genshin_cube_solver.solver:find_solution:48 - Buscando solução para estado inicial: [1, 1, 1, 1]
+2025-07-03 01:35:45 | SUCCESS  | genshin_cube_solver.solver:find_solution:59 - Solução encontrada: ataques (1, 1, 1) → estado final [1, 1, 1, 1]
