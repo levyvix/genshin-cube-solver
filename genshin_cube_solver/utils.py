@@ -4,6 +4,13 @@ from pathlib import Path
 import datetime
 
 
+def _write_console(message: str, stream=None) -> None:
+    stream = stream or sys.stdout
+    encoding = getattr(stream, "encoding", None) or "utf-8"
+    safe_message = message.encode(encoding, errors="backslashreplace").decode(encoding)
+    stream.write(safe_message)
+
+
 def get_logger():
     """
     Configura o logger do sistema com formato seguro para nomes de arquivo.
@@ -27,7 +34,7 @@ def get_logger():
 
     # Adiciona handler para console
     logger.add(
-        sink=lambda msg: print(msg, end=""),
+        sink=_write_console,
         format="<green>{time:YYYY-MM-DD HH:mm:ss}</green> | <level>{level: <8}</level> | <cyan>{name}</cyan>:<cyan>{function}</cyan>:<cyan>{line}</cyan> - <level>{message}</level>",
         level="INFO",
     )
