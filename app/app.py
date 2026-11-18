@@ -1,13 +1,13 @@
 from fastapi import FastAPI, Request, Form, HTTPException, BackgroundTasks
 from fastapi.responses import HTMLResponse
 from fastapi.templating import Jinja2Templates
-from fastapi.staticfiles import StaticFiles
 from typing import Dict, List, Optional, Tuple
 from pathlib import Path
 import json
 from dataclasses import dataclass, asdict
 from genshin_cube_solver.solver import CubeSolver
 from genshin_cube_solver.utils import get_logger
+from genshin_cube_solver.defaults import get_default_config
 
 logger = get_logger()
 
@@ -20,7 +20,6 @@ here = Path(__file__).parent
 
 # Configuração de templates e arquivos estáticos
 templates = Jinja2Templates(directory=here / "templates")
-app.mount("/static", StaticFiles(directory=here / "static"), name="static")
 
 
 @dataclass
@@ -105,16 +104,7 @@ class CubeSolverManager:
 solver_manager = CubeSolverManager()
 
 # Configuração padrão
-DEFAULT_CONFIG = {
-    "initial": "2 1 1 3",
-    "attack_map": {
-        1: [1, 2],
-        2: [2, 3, 1],
-        3: [3, 2, 4],
-        4: [4, 3],
-    },
-    "max_steps": 10,
-}
+DEFAULT_CONFIG = get_default_config()
 
 
 @app.get("/", response_class=HTMLResponse)
